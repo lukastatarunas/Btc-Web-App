@@ -18,12 +18,14 @@ const Form = ({ currencyData, currencyList, handleRemoveCurrency, handleAddCurre
 
     const formatCurrency = (currency) => currency.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-    const handleInputChange = (event) => setBtc(event.target.value);
+    const handleInputChange = (event) => {
+        if (!isNaN(event.target.value)) setBtc(event.target.value);
+    };
 
     return (
         <FormContainer noValidate autoComplete='off'>
             <TextFieldContainer>
-                <TextField onChange={handleInputChange} value={btc} error={isNaN(btc)} label='Enter the BTC amount' />
+                <TextField onChange={handleInputChange} value={btc} error={isNaN(btc)} label='Enter the BTC' />
             </TextFieldContainer>
             {currencyData.map((currency) => (
                 <CurrencyContainer key={currency.code}>

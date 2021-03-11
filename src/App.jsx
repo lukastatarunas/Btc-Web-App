@@ -29,9 +29,7 @@ const App = () => {
     const handleRemoveCurrency = (currencyCode) => {
         setCurrencyData(
             currencyData.filter((currency) => {
-                if (currency.code === currencyCode) {
-                    setCurrencyList((currencyList) => [...currencyList, currency]);
-                }
+                if (currency.code === currencyCode) setCurrencyList((currencyList) => [...currencyList, currency]);
                 return currency.code !== currencyCode;
             }),
         );
@@ -40,9 +38,7 @@ const App = () => {
     const handleAddCurrency = (event) => {
         setCurrencyList(
             currencyList.filter((currency) => {
-                if (currency.code === event.target.value) {
-                    setCurrencyData((currencyData) => [...currencyData, currency]);
-                }
+                if (currency.code === event.target.value) setCurrencyData((currencyData) => [...currencyData, currency]);
                 return currency.code !== event.target.value;
             }),
         );
